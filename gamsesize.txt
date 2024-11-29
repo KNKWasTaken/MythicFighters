@@ -1,0 +1,14 @@
+Pixel:- 10x10
+Background:- 1250x700
+Character+Defense:- 180x160
+Character:- 80x160
+Defense:- 80x160
+Attack:- 660x160
+
+Mac's Attacks:-
+Fireball
+Fire Pillar
+
+Mac's defence:-
+Fire Wall
+Coat
