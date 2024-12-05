@@ -109,10 +109,10 @@ font = pygame.font.Font('Assets/Font/Disket-Mono-Bold.ttf', 36)
 pygame.display.set_caption('GameTest')
 
 bg = pygame.image.load('Assets/bg.png')
-chara = literalPlayer(namea, "Idle", center=(230, 500), health=10)
-charb = literalPlayer(nameb, "Idle", center=(1020, 500), flipx=True, health=10)
-attacka = literalPlayer('Attack', 'Default', center=(610, 500))
-attackb  = literalPlayer('Attack', 'Default', center=(610, 500), flipx=True)
+chara = literalPlayer(namea, "Idle", center=(205, 500), health=10)
+charb = literalPlayer(nameb, "Idle", center=(1045, 500), flipx=True, health=10)
+attacka = literalPlayer('Attack', 'Default', center=(625, 500))
+attackb  = literalPlayer('Attack', 'Default', center=(625, 500), flipx=True)
 allSprites = pygame.sprite.Group(chara, charb, attacka, attackb)
 message = None
 
@@ -149,7 +149,7 @@ while run:
         turncount += 1
     elif turncount % 2 != 0:
         botMove = random.randint(1, 4)
-        pygame.time.delay(5000)
+        pygame.time.delay(3000)
         if charb.name == 'Akiro':
             if botMove == 1:
                 exec(Akiro['move1'].format(char='charb', victim='chara', atkframe='attackb'))
@@ -178,7 +178,7 @@ while run:
 
     if message:
         textrender(message, font, (255,255,255), window, size)
-        pygame.display.flip
+        pygame.display.flip()
         pygame.time.delay(1000)
         message = None
 
@@ -189,15 +189,19 @@ while run:
     if chara.health <= 0:
         chara.kill()
         allSprites.remove(chara)
+        window.fill((0, 0, 0))
         textrender('GAME OVER', font, (255,0,0), window, size)
-        pygame.time.delay(10000)
+        pygame.display.flip()
+        pygame.time.delay(3000)
         run = False
         print('Winner is 1')
     elif charb.health <= 0:
         charb.kill()
         allSprites.remove(charb)
+        window.fill((0, 0, 0))
         textrender('GAME OVER', font, (255,0,0), window, size)
-        pygame.time.delay(10000)
+        pygame.display.flip()
+        pygame.time.delay(3000)
         run = False
         print('Winner is 2')
 
